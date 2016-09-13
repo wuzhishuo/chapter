@@ -1,28 +1,34 @@
 <template>
-    <div class="home-page">
+    <div class="page-wrapper page-charge">
         <div class="picture-show">
             <img src="https://placeimg.com/500/200/nature" alt="image holder">
         </div>
         <div class="scan-area">
             <p class="app-name">任我充</p>
-            <div class="scan"></div>
+            <div class="scan" @click="goToLogin"></div>
             <p class="tips">扫码充电</p>
         </div>
-        <div class="tabbar"></div>
+        <Tabbar></Tabbar>
     </div>
 </template>
 
 <script>
-    export default {
+    import Tabbar from './shared/Tabbar'
 
+    export default {
+      components: {
+        Tabbar
+      },
+      methods: {
+        goToLogin: function () {
+          this.$router.go('./login')
+        }
+      }
     }
 </script>
 
 <style lang="scss">
-    .home-page {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
+    .page-charge {
         background-color: #1b274a;
 
         img {
@@ -36,7 +42,7 @@
     }
 
     .scan-area {
-        background: url('../assets/images/bg.png') no-repeat;
+        background: linear-gradient(#317dcd,#1b2f4a);
         background-size: 100%;
         flex: 1;
         color: #fff;
@@ -60,10 +66,5 @@
             text-align: center;
             margin: 0;
         }
-    }
-
-    .tabbar {
-        height: 57px;
-        background: #fff;
     }
 </style>
