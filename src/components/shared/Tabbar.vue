@@ -1,6 +1,6 @@
 <template>
     <div class="tabbar">
-        <a v-link="{path:'/charge',activeClass:'active'}" class="tabbar-item item-charging"></a>
+        <a v-link="{path:'/',activeClass:'active'}" class="tabbar-item item-charging"></a>
         <a v-link="{path:'/finding',activeClass:'active'}" class="tabbar-item item-finding"></a>
         <a v-link="{path:'/follow',activeClass:'active'}" class="tabbar-item item-follow"></a>
         <a v-link="{path:'/me',activeClass:'active'}" class="tabbar-item item-me"></a>

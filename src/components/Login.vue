@@ -4,7 +4,7 @@
         <button type="button" slot="left" class="icon-back" @click="goBack"></button>
     </top-header>
     <div class="login-form-container">
-      <form class="login-form">
+      <form class="login-form" @submit.prevent="login">
         <div class="app-name">任我充</div>
         <div class="input-group">
           <span class="icon-before icon-phone"></span>
@@ -42,7 +42,10 @@
     },
     methods: {
       goBack: function () {
-        this.$router.go('/charge')
+        this.$router.go('/')
+      },
+      login: function () {
+        this.$router.go('/charging')
       }
     }
   }

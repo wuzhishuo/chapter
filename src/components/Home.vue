@@ -23,6 +23,11 @@
         goToLogin: function () {
           this.$router.go('./login')
         }
+      },
+      data () {
+        return {
+          pageTitle: '任我充'
+        }
       }
     }
 </script>
