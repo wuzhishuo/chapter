@@ -1,6 +1,6 @@
 <template>
     <div class="tabbar">
-        <a v-link="{path:'/',activeClass:'active'}" class="tabbar-item item-charging"></a>
+        <a v-link="{path:'/',activeClass:'active',exact: true}" class="tabbar-item item-charging"></a>
         <a v-link="{path:'/finding',activeClass:'active'}" class="tabbar-item item-finding"></a>
         <a v-link="{path:'/follow',activeClass:'active'}" class="tabbar-item item-follow"></a>
         <a v-link="{path:'/me',activeClass:'active'}" class="tabbar-item item-me"></a>
@@ -17,7 +17,7 @@ export default {
     .tabbar {
         height: 57px;
         background: #fff;
-        border-top: 1px solid rgba(0,0,0,0.2);
+        border-top: 1px solid rgba(0,0,0,0.1);
         display: flex;
     }
 

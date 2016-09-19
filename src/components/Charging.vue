@@ -114,10 +114,10 @@
     position: absolute;
     width: 183px;
     height: 70px;
-    background: url('~assets/images/charging_sprite.png') 0 0;
+    /*background: url('~assets/images/charging_sprite.png') 0 0;*/
     top: 185px;
     left: 45px;
-    animation: light-animation steps(60) 5s infinite;
+    /*animation: light-animation steps(60) 5s infinite;*/
   }
 
   .fulled-power {
