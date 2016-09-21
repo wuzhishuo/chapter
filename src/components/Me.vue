@@ -2,7 +2,7 @@
   <div class="page-wrapper page-me">
     <div class="me-header">
       <div class="info-left">
-        <img src="~assets/images/me_personal_picture.png" class="avatar" alt="头像">
+        <img src="~assets/images/nav_me_icon_head.png" class="avatar" alt="头像">
         <span class="user-name" v-text="userName"></span>
       </div>
       <div class="info-right">

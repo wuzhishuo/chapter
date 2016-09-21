@@ -3,30 +3,30 @@
     <div class="header-button is-left">
       <slot name="left"></slot>
     </div>
-    <h1 class="header-title" v-text="title"></h1>
     <div class="header-button is-right">
-      <slot name="right" class="right"></slot>
+      <slot name="right"></slot>
     </div>
+    <h1 class="header-title">
+      <slot name="title"></slot>
+    </h1>
   </header>
 </template>
 
 <script>
   export default {
-    props: {
-      title: String
-    }
   }
 </script>
 
 <style lang="scss">
   .top-header {
-    height: 57px;
     line-height: 57px;
     padding: 0 19px;
     background-color: #1e2f5e;
   }
 
   .header-button {
+    line-height: 0;
+    
     button {
       background-color: transparent;
       border: 0;
@@ -57,10 +57,18 @@
     font-weight: normal;
   }
 
-  .icon-back {
-    background: url('~assets/images/nav_icon_back.png') no-repeat;
+  .icon-back,.icon-map {
     background-size: contain;
+    background-repeat: no-repeat;
     margin-top: 18px;
     outline: none;
+  }
+
+  .icon-back {
+    background-image: url('~assets/images/nav_icon_back.png');
+  }
+
+  .icon-map {
+    background-image: url('~assets/images/nav_icon_map.png');
   }
 </style>

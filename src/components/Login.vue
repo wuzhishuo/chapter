@@ -1,7 +1,8 @@
 <template>
   <div class="page-wrapper page-login">
-    <top-header title="会员登录">
+    <top-header>
         <button type="button" slot="left" class="icon-back" @click="goBack"></button>
+        <span slot="title">会员登录</span>
     </top-header>
     <div class="login-form-container">
       <form class="login-form" @submit.prevent="login">
