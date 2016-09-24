@@ -1,5 +1,5 @@
 <template>
-  <div class="page-station-detail page-wrapper">
+  <div class="page-station-detail">
     <top-header>
       <button type="button" slot="left" class="icon-back" @click="goBack"></button>
       <button type="button" slot="right" class="icon-share"></button>
