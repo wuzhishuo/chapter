@@ -8,7 +8,7 @@
             <div class="scan" @click="goToLogin"></div>
             <p class="tips">扫码充电</p>
         </div>
-        <Tabbar></Tabbar>
+        <tabbar></tabbar>
     </div>
 </template>
 

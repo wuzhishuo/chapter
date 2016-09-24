@@ -12,22 +12,22 @@
     </div>
     <div class="nav-list">
       <div class="action-group">
-        <Action-Cell icon="icon-order" title="我的订单" @click="actionClick"></Action-Cell>
-        <Action-Cell icon="icon-wallet" title="我的钱包"></Action-Cell>
-        <Action-Cell icon="icon-card" title="我的充电卡"></Action-Cell>
-        <Action-Cell icon="icon-collect" title="我的收藏"></Action-Cell>
-        <Action-Cell icon="icon-assess" title="我的评价"></Action-Cell>
+        <action-cell icon="icon-order" title="我的订单" @click="actionClick"></action-cell>
+        <action-cell icon="icon-wallet" title="我的钱包"></action-cell>
+        <action-cell icon="icon-card" title="我的充电卡"></action-cell>
+        <action-cell icon="icon-collect" title="我的收藏"></action-cell>
+        <action-cell icon="icon-assess" title="我的评价"></action-cell>
       </div>
       <div class="action-group">
-        <Action-Cell icon="icon-find" title="发现充电桩"></Action-Cell>
+        <action-cell icon="icon-find" title="发现充电桩"></action-cell>
       </div>
       <div class="action-group">
-        <Action-Cell icon="icon-help" title="帮助与反馈"></Action-Cell>
-        <Action-Cell icon="icon-setting" title="我的设置"></Action-Cell>
-        <Action-Cell icon="icon-about" title="关于任我充"></Action-Cell>
+        <action-cell icon="icon-help" title="帮助与反馈"></action-cell>
+        <action-cell icon="icon-setting" title="我的设置"></action-cell>
+        <action-cell icon="icon-about" title="关于任我充"></action-cell>
       </div>
     </div>
-    <Tabbar></Tabbar>
+    <tabbar></tabbar>
   </div>
 </template>
 

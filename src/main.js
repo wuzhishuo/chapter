@@ -6,6 +6,7 @@ import Follow from './components/Follow'
 import Me from './components/Me'
 import Login from './components/Login'
 import Charging from './components/Charging'
+import StationDetail from './components/StationDetail'
 require('normalize.css')
 
 import VueRouter from 'vue-router'
@@ -23,6 +24,9 @@ router.map({
   },
   'finding': {
     component: Finding
+  },
+  'station/:stationId': {
+    component: StationDetail
   },
   'follow': {
     component: Follow

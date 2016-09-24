@@ -57,7 +57,7 @@
     font-weight: normal;
   }
 
-  .icon-back,.icon-map {
+  @mixin icon-background {
     background-size: contain;
     background-repeat: no-repeat;
     margin-top: 18px;
@@ -65,10 +65,17 @@
   }
 
   .icon-back {
+    @include icon-background;
     background-image: url('~assets/images/nav_icon_back.png');
   }
 
   .icon-map {
+    @include icon-background;
     background-image: url('~assets/images/nav_icon_map.png');
+  }
+
+  .icon-share {
+    @include icon-background;
+    background-image: url('~assets/images/nav_icon_share.png');
   }
 </style>

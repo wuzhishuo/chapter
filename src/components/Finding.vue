@@ -1,11 +1,11 @@
 <template>
   <div class="page-finding page-wrapper">
     <div class="finding-header">
-      <Nav-Header>
+      <nav-header>
         <button type="button" slot="left" class="icon-back"></button>
         <button type="button" slot="right" class="icon-map"></button>
         <button type="button" slot="title" v-text="location" class="location"></button>
-      </Nav-Header>
+      </nav-header>
       <div class="filters">
         <div class="filter-item">
           <a class="filter-action" href="javascript:void(0)">距离</a>
@@ -19,11 +19,11 @@
       </div>
     </div>
     <ul class="station-list">
-      <li class="station-item"  v-for="station in stations">
-        <Station-Cell :name="station.name" :address="station.address" :thumbnail-url="station.thumbnailUrl" :ACCount="station.ACCount" :DCCount="station.DCCount" :distance="station.distance"></Station-Cell>
+      <li class="station-item"  v-for="station in stations" @click="goToDetail(station.id)">
+        <station-cell :name="station.name" :address="station.address" :thumbnail-url="station.thumbnailUrl" :ACCount="station.ACCount" :DCCount="station.DCCount" :distance="station.distance"></station-cell>
       </li>
     </ul>
-    <Tabbar></Tabbar>
+    <tabbar></tabbar>
   </div>
 </template>
 
@@ -42,6 +42,7 @@
       return {
         location: '广州',
         stations: [{
+          id: 'c1',
           name: '中森渔人码头店充电站',
           address: '广州市天河区花城大道460号',
           thumbnailUrl: 'https://placeimg.com/80/80/any',
@@ -50,6 +51,7 @@
           distance: '3.5km'
         },
         {
+          id: 'c2',
           name: '维尼国际酒店',
           address: '广州市天河区林和西路169号',
           thumbnailUrl: 'https://placeimg.com/80/80/animals',
@@ -58,6 +60,7 @@
           distance: '1.8km'
         },
         {
+          id: 'c3',
           name: '中国市长大厦',
           address: '广州市天河区天河北路189号',
           thumbnailUrl: 'https://placeimg.com/80/80/tech',
@@ -66,6 +69,7 @@
           distance: '0.2km'
         },
         {
+          id: 'c4',
           name: '正佳广场地下停车场一区',
           address: '广州市天河区花城大道460号',
           thumbnailUrl: 'https://placeimg.com/80/80/people',
@@ -74,6 +78,7 @@
           distance: '5km'
         },
         {
+          id: 'c5',
           name: '中森渔人码头店充电站',
           address: '广州市天河区花城大道460号',
           thumbnailUrl: 'https://placeimg.com/80/80/nature',
@@ -81,6 +86,11 @@
           DCCount: 5,
           distance: '3km'
         }]
+      }
+    },
+    methods: {
+      goToDetail: function (id) {
+        this.$router.go('/station/' + id)
       }
     }
   }
