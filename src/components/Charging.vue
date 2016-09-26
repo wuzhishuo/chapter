@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper page-charging">
+  <div class="page-charging">
     <div class="charging-content">
       <div class="charger-title" v-text="chargerTitle"></div>
       <div class="charging-details">
@@ -77,9 +77,8 @@
 <style lang="scss">
   .page-charging {
     color: #fff;
-  }
 
-  .charging-content {
+    .charging-content {
     flex: 1;
     display: flex;
     flex-direction: column;
@@ -100,8 +99,7 @@
   .charging-status {
     margin: 0 auto;
     width: 275px;
-    height: 275px;
-    position: relative;
+    flex: 1;
     /*background: url('~assets/images/charging_process_texture.png');*/
     background-size: 100%;
     display: flex;
@@ -150,11 +148,14 @@
 
   .charging-details {
     flex: 1;
+    display: flex;
+    flex-direction: column;
   }
 
   .charger-info {
     display: flex;
     text-align: center;
+    margin-bottom: 15%;
 
     .info-item {
       flex: 1;
@@ -187,9 +188,11 @@
   }
 
   .btn-stop {
-    margin-bottom: 63px;
+    margin-bottom: 18%;
   }
 
+  }
+  
   @keyframes light-animation {
     to {
       background-position: -24360px 0;

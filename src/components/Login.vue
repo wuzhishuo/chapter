@@ -1,5 +1,5 @@
 <template>
-  <div class="page-wrapper page-login">
+  <div class="page-login">
     <top-header>
         <button type="button" slot="left" class="icon-back" @click="goBack"></button>
         <span slot="title">会员登录</span>
@@ -54,12 +54,19 @@
 
 <style lang="scss">
   .login-form-container {
-    flex: 1;
+    position: absolute;
+    top: 57px;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    /*flex: 1;*/
     padding: 0 10%;
     background: linear-gradient(#317dcd,#1b2f4a);
     color: #fff;
-    display: flex;
-    flex-direction: column;
+    /*display: flex;*/
+    /*flex-direction: column;*/
+    overflow-y: scroll;
+    
 
     .app-name {
       margin: 38px 0;
@@ -146,6 +153,7 @@
 
   .login-help {
     margin-bottom: 49px;
+    margin-top: 40px;
     display: flex;
 
     a {

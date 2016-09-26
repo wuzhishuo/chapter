@@ -56,6 +56,7 @@
 <style lang="scss">
   .nav-list {
     overflow-y: scroll;
+    flex: 1;
   }
 
   .action-group + .action-group {
@@ -107,9 +108,5 @@
       display: inline-block;
       background-size: contain;
     }
-  }
-
-  .nav-list {
-    flex: 1;
   }
 </style>

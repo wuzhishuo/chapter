@@ -1,113 +1,115 @@
 <template>
-  <div class="page-station-detail">
+  <div class="page-station-detail page-wrapper">
     <top-header>
       <button type="button" slot="left" class="icon-back" @click="goBack"></button>
       <button type="button" slot="right" class="icon-share"></button>
       <span slot="title" v-text="name"></span>
     </top-header>
-    <img class="station-img" :src="thumbnailUrl">
-    <div class="info-group">
-      <info-cell>
-        <div slot="info-left">
-          <span class="open-day" v-text="openDay"></span>
-          <span class="open-time" v-text="openTime"></span>
-        </div>
-        <div slot="info-right">
-          <span class="unit-price">￥
-            <span class="price-number" v-text="unitPrice"></span>/kwh
+    <div class="content-wrapper">
+        <img class="station-img" :src="thumbnailUrl">
+      <div class="info-group">
+        <info-cell>
+          <div slot="info-left">
+            <span class="open-day" v-text="openDay"></span>
+            <span class="open-time" v-text="openTime"></span>
+          </div>
+          <div slot="info-right">
+            <span class="unit-price">￥
+              <span class="price-number" v-text="unitPrice"></span>/kwh
+            </span>
+          </div>
+        </info-cell>
+        <info-cell>
+          <span slot="info-left" v-text="address"></span>
+          <span slot="info-right" v-text="distance"></span>
+        </info-cell>
+      </div>
+      <div class="info-group">
+        <info-cell>
+          <div slot="info-left">
+            <span class="ports-info">
+              可预约充电口
+              <span class="port-order">2</span>
+            </span>
+            <span class="ports-info">
+              空闲充电口
+              <span class="port-available">1</span>
+            </span>
+          </div>
+          <div slot="info-right">
+            <span class="arrow-bottom"></span>
+          </div>
+        </info-cell>
+        <charger-cell v-for="charger in chargers" :name="charger.name" :power-type="charger.powerType" :ports="charger.ports"></charger-cell>
+      </div>
+      <div class="info-group">
+        <info-cell>
+          <div slot="info-left">
+            站点评价
+            <span class="score-container">
+              <span class="score" v-for="n in score"></span>
+              <span class="not-score" v-for="n in (5-score)"></span>
+            </span>
+          </div>
+        </info-cell>
+        <comment-cell :score="lastComment.score" :content="lastComment.content" :created="lastComment.created" :user="lastComment.user"></comment-cell>
+        <info-cell>
+          <div slot="info-left">
+            查看所有<span class="comment-count" v-text="commentCount"></span>评价
+          </div>
+          <div slot="info-right">
+            <span class="arrow-right"></span>
+          </div>
+        </info-cell>
+      </div>
+      <div class="info-group">
+        <key-value-cell>
+          <span slot="key">
+            预约费用
           </span>
-        </div>
-      </info-cell>
-      <info-cell>
-        <span slot="info-left" v-text="address"></span>
-        <span slot="info-right" v-text="distance"></span>
-      </info-cell>
-    </div>
-    <div class="info-group">
-      <info-cell>
-        <div slot="info-left">
-          <span class="ports-info">
-            可预约充电口
-            <span class="port-order">2</span>
+          <div slot="value">
+            <span v-text="bookingCost.toFixed(2)"></span>元/分钟
+            <p class="help-inline">(预约时间段内启动返回预约费用)</p>
+          </div>
+        </key-value-cell>
+        <key-value-cell>
+          <span slot="key">
+            功能区
           </span>
-          <span class="ports-info">
-            空闲充电口
-            <span class="port-available">1</span>
+          <div slot="value">
+            地铁沿线+交通枢纽
+          </div>
+        </key-value-cell>
+        <key-value-cell>
+          <span slot="key">
+            便利设施
           </span>
-        </div>
-        <div slot="info-right">
-          <span class="arrow-bottom"></span>
-        </div>
-      </info-cell>
-      <charger-cell v-for="charger in chargers" :name="charger.name" :power-type="charger.powerType" :ports="charger.ports"></charger-cell>
-    </div>
-    <div class="info-group">
-      <info-cell>
-        <div slot="info-left">
-          站点评价
-          <span class="score-container">
-            <span class="score" v-for="n in score"></span>
-            <span class="not-score" v-for="n in (5-score)"></span>
+          <div slot="value">
+            WiFi、便利店
+          </div>
+        </key-value-cell>
+        <key-value-cell>
+          <span slot="key">
+            运营商
           </span>
-        </div>
-      </info-cell>
-      <comment-cell :score="lastComment.score" :content="lastComment.content" :created="lastComment.created" :user="lastComment.user"></comment-cell>
-      <info-cell>
-        <div slot="info-left">
-          查看所有<span class="comment-count" v-text="commentCount"></span>评价
-        </div>
-        <div slot="info-right">
-          <span class="arrow-right"></span>
-        </div>
-      </info-cell>
-    </div>
-    <div class="info-group">
-      <key-value-cell>
-        <span slot="key">
-          预约费用
-        </span>
-        <div slot="value">
-          <span v-text="bookingCost.toFixed(2)"></span>元/分钟
-          <p class="help-inline">(预约时间段内启动返回预约费用)</p>
-        </div>
-      </key-value-cell>
-       <key-value-cell>
-        <span slot="key">
-          功能区
-        </span>
-        <div slot="value">
-          地铁沿线+交通枢纽
-        </div>
-      </key-value-cell>
-      <key-value-cell>
-        <span slot="key">
-          便利设施
-        </span>
-        <div slot="value">
-          WiFi、便利店
-        </div>
-      </key-value-cell>
-      <key-value-cell>
-        <span slot="key">
-          运营商
-        </span>
-        <div slot="value">
-          国家电网
-          <button type="button" class="btn phone"></button>
-        </div>
-      </key-value-cell>
-      <key-value-cell align-mode="top">
-        <span slot="key">
-          站点描述
-        </span>
-        <div slot="value">
-          潭村公交场充电站是珠三角首个大型纯电公交充电站，项目地址位于潭村公交站内，站内将配200个充电桩
-        </div>
-      </key-value-cell>
-    </div>
-    <div class="actions">
-      <button class="btn btn-default">预约充电</button>
-      <button class="btn btn-primary btn-nav">导航</button>
+          <div slot="value">
+            国家电网
+            <button type="button" class="btn phone"></button>
+          </div>
+        </key-value-cell>
+        <key-value-cell align-mode="top">
+          <span slot="key">
+            站点描述
+          </span>
+          <div slot="value">
+            潭村公交场充电站是珠三角首个大型纯电公交充电站，项目地址位于潭村公交站内，站内将配200个充电桩
+          </div>
+        </key-value-cell>
+      </div>
+      <div class="actions">
+        <button class="btn btn-default">预约充电</button>
+        <button class="btn btn-primary btn-nav">导航</button>
+      </div>
     </div>
   </div>
 </template>
@@ -203,7 +205,10 @@
 <style lang="scss">
   .page-station-detail {
     background: rgba(0,0,0,0.08);
-    overflow-y: scroll;
+    .content-wrapper {
+      flex: 1;
+      overflow-y: scroll;
+    }
 
     .actions {
       margin: 20px 15px;
@@ -231,6 +236,8 @@
 
   .station-img {
     height: 180px;
+    width: 100%;
+    vertical-align: middle;
   }
 </style>
 
