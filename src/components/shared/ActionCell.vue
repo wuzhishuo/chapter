@@ -1,22 +1,24 @@
 <template>
-  <div class="action-cell">
-    <div class="cell-left" :class="icon"></div>
-    <div class="cell-right"></div>
+  <a class="action-cell" v-link="link">
+    <span class="cell-left" :class="icon"></span>
+    <span class="cell-right"></span>
     <p class="cell-title" v-text="title"></p>
-  </div>
+  </a>
 </template>
 
 <script>
   export default {
     props: {
       icon: String,
-      title: String
+      title: String,
+      link: String
     }
   }
 </script>
 
 <style lang="scss">
   .action-cell {
+    display: block;
     height: 53px;
     line-height: 53px;
     background: #fff;
@@ -26,11 +28,10 @@
     }
 
     .cell-title {
-      margin: 0;
+      margin: 0 63px;
       font-size: 17px;
       font-weight: 200;
       color: rgba(0,0,0,0.9);
-      margin: 0 63px;
     }
 
     .cell-left {

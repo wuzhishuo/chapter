@@ -52,7 +52,7 @@
 
       .comment-time {
         display: inline-block;
-        margin-left: 15px;
+        margin-left: 10px;
         color: rgba(0,0,0,0.6);
         font-size: 13px;
       }
@@ -68,7 +68,7 @@
         display: inline-block;
         width: 18px;
         height: 18px;
-        margin-left: 5px;
+        margin-right: 5px;
         float: left;
         background-repeat: no-repeat;
         background-size: contain;

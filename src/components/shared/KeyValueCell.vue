@@ -29,6 +29,7 @@
       padding-right: 20px;
       color: rgba(0,0,0,0.9);
       width: 60px;
+      text-align: right;
       
       &.mode-align-middle {
         vertical-align: middle;

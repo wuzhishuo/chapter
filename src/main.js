@@ -7,7 +7,9 @@ import Me from './components/Me'
 import Login from './components/Login'
 import Charging from './components/Charging'
 import StationDetail from './components/StationDetail'
+import Orders from './components/Orders.vue'
 require('normalize.css')
+require('../src/assets/javascripts/filters')
 
 import VueRouter from 'vue-router'
 
@@ -39,6 +41,9 @@ router.map({
   },
   'charging': {
     component: Charging
+  },
+  'orders': {
+    component: Orders
   }
 })
 

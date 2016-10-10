@@ -20,6 +20,7 @@
     font-size: 15px;
     color: rgba(0,0,0,0.9);
     font-weight: 200;
+    line-height: 100%;
   }
 
   %clearfix {
@@ -92,7 +93,7 @@
         display: inline-block;
         width: 18px;
         height: 18px;
-        margin-left: 5px;
+        margin-right: 5px;
         float: left;
         background-repeat: no-repeat;
         background-size: contain;

@@ -12,14 +12,14 @@
     </div>
     <div class="nav-list">
       <div class="action-group">
-        <action-cell icon="icon-order" title="我的订单" @click="actionClick"></action-cell>
+        <action-cell icon="icon-order" title="我的订单" link="/orders"></action-cell>
         <action-cell icon="icon-wallet" title="我的钱包"></action-cell>
         <action-cell icon="icon-card" title="我的充电卡"></action-cell>
         <action-cell icon="icon-collect" title="我的收藏"></action-cell>
         <action-cell icon="icon-assess" title="我的评价"></action-cell>
       </div>
       <div class="action-group">
-        <action-cell icon="icon-find" title="发现充电桩"></action-cell>
+        <action-cell icon="icon-find" title="发现充电桩" link="/finding"></action-cell>
       </div>
       <div class="action-group">
         <action-cell icon="icon-help" title="帮助与反馈"></action-cell>
@@ -46,9 +46,6 @@
       ActionCell
     },
     methods: {
-      actionClick: function () {
-        console.log(1)
-      }
     }
   }
 </script>
