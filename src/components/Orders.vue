@@ -40,7 +40,7 @@
             createdTime: '2016/10/09 10:26',
             chargingTime: '2016/10/10 12:00 - 14:00',
             bookingMomey: 22.5,
-            timeRemaining: 10 * 60,
+            timeRemaining: 1 * 60,
             station: {
               name: '华普广场地下停车场一区',
               chargerOrdered: '1',

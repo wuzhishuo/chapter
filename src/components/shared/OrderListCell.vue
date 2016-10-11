@@ -3,8 +3,8 @@
     <div class="cell-header">
       <span class="header-left" :class="statusClass">
         <span class="icon"></span>
-        <span class="order-status" v-text="status | showOrderStatusText"></span>
-        <span class="time-remaining" v-if="timeRemaining>0" v-text="timeRemaining"></span>
+      <span class="order-status" v-text="status | showOrderStatusText"></span>
+      <span class="time-remaining" v-if="timeRemaining>0" v-text="timeRemaining | convertSeconds"></span>
       </span>
       <span class="header-right" v-text="createdTime"></span>
     </div>
@@ -31,8 +31,8 @@
           <span class="momey" v-text="bookingMomey"></span>元<span>
       </div>
       <button v-if="status == '1'" type="button" class="btn btn-default btn-block">导航</button>
-      <template v-else>
-        <button type="button" class="btn btn-primary btn-block">支付预约费</button>
+      <template v-if="status == '2'">
+        <button type="button" class="btn btn-primary btn-block" @click="pay">支付预约费</button>
         <p class="booking-tips">（请你在规定时间内完成预约费用的支付！）</p>
       </template>
       
@@ -77,6 +77,8 @@
             return 'status-booking'
           case '2':
             return 'status-paying'
+          case '3':
+            return 'status-overdue'
         }
       }
     },
@@ -86,9 +88,18 @@
         if (me.timeRemaining > 0) {
           setTimeout(function () {
             me.timeRemaining -= 1
+
+            if (me.timeRemaining <= 0) {
+              me.status = '3'
+            }
+
             me.countDown()
           }, 1000)
         }
+      },
+      pay: function () {
+        this.status = '1'
+        this.timeRemaining = 0
       }
     },
     ready: function () {
@@ -138,6 +149,12 @@
         color: rgb(231, 57, 57);
         .icon {
           background-image: url('~assets/images/me_order_time.png');
+        }
+      }
+
+      &.status-overdue {
+        .icon {
+          background-image: url('~assets/images/me_order_overdue.png');
         }
       }
     }
